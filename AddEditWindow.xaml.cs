@@ -91,7 +91,15 @@ namespace PROG2A_GUI_POE
 
             if (IngredientNameBox.Text != string.Empty)
             {
-                ingname = IngredientNameBox.Text;
+                if (IngredientList.Items.Contains(IngredientNameBox.Text))
+                {
+                    MessageBox.Show("An ingredeint of that name has already been included.");
+                    legit = false;
+                }
+                else
+                {
+                    ingname = IngredientNameBox.Text;
+                }
             }
             else
             {
@@ -169,19 +177,20 @@ namespace PROG2A_GUI_POE
                 Ingredients.Add(ingname, holder);
                 //Adds the Ingredeint to the GUI list
                 IngredientList.Items.Add(ingname);
+                //clears the create ingredient inputs
+                IngredientNameBox.Text = string.Empty;
+                IngMeasureBox.Text = string.Empty;
+                IngQuantBox.Text = string.Empty;
+                IngCalBox.Text = string.Empty;
+                StarchRad.IsChecked = false;
+                FandVRad.IsChecked = false;
+                BeansRad.IsChecked = false;
+                MeatRad.IsChecked = false;
+                FatsRad.IsChecked = false;
+                DairyRad.IsChecked = false;
+                WaterRad.IsChecked = false;
             }
-            //clears the create ingredient inputs
-            IngredientNameBox.Text = string.Empty;
-            IngMeasureBox.Text = string.Empty;
-            IngQuantBox.Text = string.Empty;
-            IngCalBox.Text = string.Empty;
-            StarchRad.IsChecked = false;
-            FandVRad.IsChecked = false;
-            BeansRad.IsChecked = false;
-            MeatRad.IsChecked = false;
-            FatsRad.IsChecked = false;
-            DairyRad.IsChecked = false;
-            WaterRad.IsChecked = false;
+            
 
 
 
@@ -232,7 +241,15 @@ namespace PROG2A_GUI_POE
             bool axpt = true;
             if (NameBox.Text != string.Empty) 
             {
-                nam = NameBox.Text;
+                if (DataStore.Book.ContainsKey(NameBox.Text))
+                {
+                    axpt = false;
+                    MessageBox.Show("A Recipe of that name is already in the system");
+                }
+                else
+                {
+                    nam = NameBox.Text;
+                }
             }
             else
             {
