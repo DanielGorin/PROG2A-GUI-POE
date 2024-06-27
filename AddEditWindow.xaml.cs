@@ -140,24 +140,68 @@ namespace PROG2A_GUI_POE
                 legit = false;
                 MessageBox.Show("Please select a food group to create an ingredient.");
             }
-            if 
-
-
-
-            //populates the new ingredient
-            holder.CreateIngredient(ingname, ingquant, meas, cal, fgroup);
-            //Adds to the ingredients collection
-            Ingredients.Add(ingname, holder);
-
+            try
+            {
+                ingquant = float.Parse(IngQuantBox.Text.Replace(".", ","));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ingredient quality must be a valid number to create an ingredient");
+                legit = false;
+            }
+            try
+            {
+                cal = float.Parse(IngCalBox.Text.Replace(".", ","));
+            }
+            catch (Exception ex)
+            {
+                legit = false;
+                MessageBox.Show("Ingredient calories must be a valid number to create an ingredient");
+            }
+            if (legit)
+            {
+                //populates the new ingredient
+                holder.CreateIngredient(ingname, ingquant, meas, cal, fgroup);
+                //Adds to the ingredients collection
+                Ingredients.Add(ingname, holder);
+                //Adds the Ingredeint to the GUI list
+                IngredientList.Items.Add(ingname);
+            }
+            //clears the create ingredient inputs
+            IngredientNameBox.Text = string.Empty;
+            IngMeasureBox.Text = string.Empty;
+            IngQuantBox.Text = string.Empty;
+            IngCalBox.Text = string.Empty;
+            Instructions_Box.Text = string.Empty;
+            StarchRad.IsChecked = false;
+            FandVRad.IsChecked = false;
+            BeansRad.IsChecked = false;
+            MeatRad.IsChecked = false;
+            FatsRad.IsChecked = false;
+            DairyRad.IsChecked = false;
+            WaterRad.IsChecked = false;
 
             //Creates an instance of the recipe class
-            Recipe HoldRecipe = new Recipe();
+            //Recipe HoldRecipe = new Recipe();
             //populates the new recipe
-            HoldRecipe.CreateRecipe(nam, Ingredients, steps);
+            //HoldRecipe.CreateRecipe(nam, Ingredients, steps);
             //stores all Gui inputs in variables and checks that all inputs are acceptable
-                
 
 
+
+        }
+
+        private void DelIngBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (IngredientList.SelectedItem != null)
+            {
+                Ingredients.Remove(IngredientList.SelectedItem.ToString());
+                IngredientList.Items.Remove(IngredientList.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("No ingredient selected.\nPlease click on an ingredient name from the list ot select it.");
+            }
         }
     }
 }

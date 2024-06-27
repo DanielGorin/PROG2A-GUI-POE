@@ -46,7 +46,7 @@
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="26,120,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Ingredient Calor"/><Run Language="en-za" Text="ies:"/></TextBlock>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="28,157,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-za" Text="Food Groups:"/></TextBlock>
         <Button x:Name="AddIngBtn" Content="Add Ingredient" Grid.Column="1" Margin="36,282,263,-34" Grid.Row="1" Width="100" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Click="AddIngBtn_Click"/>
-        <Button x:Name="DelIngBtn" Content="Delete Ingredient" Grid.Column="1" Margin="218,282,73,-34" Grid.Row="1" Background="#FF388879" FontFamily="Arial Rounded MT Bold"/>
+        <Button x:Name="DelIngBtn" Content="Delete Ingredient" Grid.Column="1" Margin="218,282,73,-34" Grid.Row="1" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Click="DelIngBtn_Click"/>
         <Button x:Name="AddRecBtn" Content="Add Recipe" Grid.Column="1" Margin="467,282,-168,-34" Grid.Row="1" Width="100" Background="#FF388879" FontFamily="Arial Rounded MT Bold"/>
         <TextBox x:Name="Instructions_Box" TextWrapping="Wrap" Text="TextBox" Grid.Column="1" Margin="409,29,-225,-1" Grid.Row="1"/>
     </Grid>
