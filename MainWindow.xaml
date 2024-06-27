@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROG2A_GUI_POE"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="895" Background="#FF1B463E">
+    <Window.Resources>
+        <Style TargetType="{x:Type StackPanel}"/>
+        <Style x:Key="BaseStyle" TargetType="{x:Type Grid}"/>
+    </Window.Resources>
+    <Grid Margin="0,0,0,-6" Height="603">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="149*"/>
+            <ColumnDefinition Width="448*"/>
+            <ColumnDefinition Width="298*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Background="#FF122B26" Margin="0,86,0,19" Grid.RowSpan="2">
+            <Button x:Name="AddRecipeBtn" Content="Add Recipe" Height="50" Background="#FF122B26" BorderBrush="Black" Foreground="White"/>
+            <Rectangle Height="384" Width="100"/>
+            <Button x:Name="ExitBtn" Content="EXIT" Height="40" Background="#FF122B26" Foreground="White" BorderBrush="Black" Click="Button_Click"/>
+        </StackPanel>
+        <Rectangle HorizontalAlignment="Center" Height="87" VerticalAlignment="Center" Width="149" Fill="#FF122B26"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White"><Run Language="en-za" Text="The Recipe Collection"/><LineBreak/><Run Language="en-za"/></TextBlock>
+        <ListBox x:Name="RecipeLst" Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Width="422" Margin="13,86,13,59" Grid.RowSpan="2"/>
+        <TextBox x:Name="SearchBar" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="422"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="13,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Language="en-za" Text="Search:"/></TextBlock>
+        <ComboBox x:Name="SearchOptions" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="278" Height="18"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Text="Search"/><Run Language="en-za" Text=" Criteria:"/></TextBlock>
+        <Button x:Name="DisplayBtn" Grid.Column="2" Content="Display" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" Height="39" Width="108" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Foreground="Black" BorderBrush="{x:Null}" Grid.RowSpan="2"/>
+        <Button x:Name="EditBtn" Grid.Column="2" Content="Edit" HorizontalAlignment="Center" Margin="0,65,0,0" Grid.Row="1" VerticalAlignment="Top" Height="39" Width="108" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Foreground="Black" BorderBrush="{x:Null}"/>
+        <Button x:Name="DeleteBtn" Grid.Column="2" Content="Delete" HorizontalAlignment="Center" Margin="0,134,0,0" Grid.Row="1" VerticalAlignment="Top" Height="39" Width="108" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Foreground="Black" BorderBrush="{x:Null}"/>
+        <Button x:Name="ScaleBtn" Grid.Column="2" Content="Scale" HorizontalAlignment="Center" Margin="0,202,0,0" Grid.Row="1" VerticalAlignment="Top" Height="38" Width="108" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Foreground="Black" BorderBrush="{x:Null}"/>
+        <ComboBox x:Name="ScaleOptions" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="108" Height="18" Grid.Row="1"/>
     </Grid>
 </Window>
