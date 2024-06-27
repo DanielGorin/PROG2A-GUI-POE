@@ -21,7 +21,7 @@
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="20" Text="The Recipe Collection"/>
             <StackPanel Grid.Row="1" Margin="0,0,0,-357" Background="#FF172E2A">
                 <Button x:Name="AddRecipeBtn" Content="Add Recipe" Height="50" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
-                <Button x:Name="EdtRecipeBtn" Content="Edit Recipe" Height="50" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
+                <Button x:Name="EdtRecipeBtn" Content="Edit Recipe" Height="50" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="EdtRecipeBtn_Click"/>
                 <TextBlock TextWrapping="Wrap" FontStretch="ExtraExpanded" Width="85" FontFamily="Arial Rounded MT Bold" FontSize="14" Foreground="White"><Run Language="en-za" Text="Scale Recipe By:"/></TextBlock>
                 <Button x:Name="Scale0_5btn" Content="0.5x" Height="30" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="Scale0_5btn_Click"/>
                 <Button x:Name="_2xScalebtn" Content="2x" Height="30" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="_2xScalebtn_Click"/>

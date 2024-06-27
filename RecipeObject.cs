@@ -188,8 +188,22 @@ namespace PROG2A_GUI_POE
             outlist.Add((int)Math.Round(100 * dairytot / tot));
             outlist.Add((int)Math.Round((100 * watertot / tot)));
             return outlist;
-
-
+        }
+        //End of foodgrouppercent Method
+        //contrainsFG
+        //returns a boolean value weather the recipe contains a specific food group
+        public bool containsFG(string fg)
+        {
+            bool ans = false;
+            List<string> foodgroups = new List<string>();
+            foreach (var item in recipeIngredients)
+            {
+                if (item.Value.foodGroup == fg)
+                {
+                    ans = true;
+                }
+            }
+            return ans;
         }
 
             //---------------------------- End of Recipe Methods ------------------------------

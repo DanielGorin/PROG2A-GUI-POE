@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -117,7 +118,7 @@ namespace PROG2A_GUI_POE
             }
             else
             {
-                MessageBox.Show("No Recipe Selected.\nPlease click on a recipe name from the list ot select it.");
+                MessageBox.Show("No Recipe Selected.\nPlease click on a recipe name from the list to select it.");
             }
             
         }
@@ -134,8 +135,111 @@ namespace PROG2A_GUI_POE
             }
             else
             {
-                MessageBox.Show("No Recipe Selected.\nPlease click on a recipe name from the list ot select it.");
+                MessageBox.Show("No Recipe Selected.\nPlease click on a recipe name from the list to select it.");
             }
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (RecipeLst.SelectedItem != null)
+            {
+                MessageBoxResult res = MessageBox.Show("Are you sure you want to delete the "+ RecipeLst.SelectedItem + " recipe?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                switch (res)
+                {
+                    case MessageBoxResult.Yes:
+                        DataStore.Book.Remove(RecipeLst.SelectedItem.ToString());
+                        printtoList(DataStore.Book);
+
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Recipe Selected.\nPlease click on a recipe name from the list to delete it.");
+            }
+        }
+
+        private void DisplayBtn_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if (SearchBar.Text != string.Empty)
+            {
+                string srch = SearchBar.Text;
+                Dictionary<string,Recipe> bk = new Dictionary<string, Recipe>();
+                Recipe sortrec = new Recipe();
+                bk.Clear();
+                if (SearchOptions.SelectedIndex == 0)//ingredient search
+                {
+                    foreach (var item in DataStore.Book)
+                    {
+                        if (item.Value.recipeIngredients.ContainsKey(srch))
+                        {
+                            bk.Add(item.Key,item.Value);
+                        }
+                    }
+                    RecipeLst.Items.Clear();
+                    var sortesDict = bk.OrderBy(KeyValuePair => KeyValuePair.Key);
+                    Console.WriteLine("Recipe List:");
+                    foreach (var alph in sortesDict)
+                    {
+                        RecipeLst.Items.Add($"{alph.Key}");
+                    }
+                }
+                if (SearchOptions.SelectedIndex == 1)//food group search
+                {
+                    foreach (var item in DataStore.Book)
+                    {
+
+                        if (item.Value.containsFG(srch))
+                        {
+                            bk.Add(item.Key, item.Value);
+                        }
+                    }
+                    RecipeLst.Items.Clear();
+                    var sortesDict = bk.OrderBy(KeyValuePair => KeyValuePair.Key);
+                    Console.WriteLine("Recipe List:");
+                    foreach (var alph in sortesDict)
+                    {
+                        RecipeLst.Items.Add($"{alph.Key}");
+                    }
+
+                }
+                if (SearchOptions.SelectedIndex == 2)//max calory search
+                {
+                    foreach (var item in DataStore.Book)
+                    {
+                        if (item.Value.Totalcal() < int.Parse(srch))
+                        {
+                            bk.Add(item.Key, item.Value);
+                        }
+                    }
+                    RecipeLst.Items.Clear();
+                    var sortesDict = bk.OrderBy(KeyValuePair => KeyValuePair.Key);
+                    Console.WriteLine("Recipe List:");
+                    foreach (var alph in sortesDict)
+                    {
+                        RecipeLst.Items.Add($"{alph.Key}");
+                    }
+                }
+                if (RecipeLst.Items.Count == 0)
+                {
+                    MessageBox.Show("There are no reicpes that match that search");
+                    printtoList(DataStore.Book);
+                    SearchBar.Text = string.Empty;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please type something in the search box to filter the recipe list");
+            }
+        }
+
+        private void Clear_Search_Click(object sender, RoutedEventArgs e)
+        {
+            printtoList(DataStore.Book);
         }
     }
 }

@@ -89,6 +89,8 @@ namespace PROG2A_GUI_POE
             DairyRad.IsChecked = false;
             WaterRad.IsChecked = false;
             AllInsBox.Text = string.Empty;
+            Ingredients.Clear();
+            steps.Clear();
 
         }
 
@@ -295,7 +297,6 @@ namespace PROG2A_GUI_POE
             if ( axpt)
             {
                 MessageBoxResult res = MessageBox.Show("Are you sure you are done creating your recipe?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
                 switch (res)
                 {
                     case MessageBoxResult.Yes:

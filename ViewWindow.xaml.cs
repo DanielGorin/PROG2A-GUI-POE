@@ -25,7 +25,7 @@ namespace PROG2A_GUI_POE
         public void bargraph(List<int> hh)
         {
 
-            StarchBlueTXT.Text = (hh[0] +"% Starch");
+            StarchBlueTXT.Text = (hh[0] + "% Starch");
             BlcokBlue.Fill = Brushes.Blue;
             VegGreenTxt.Text = (hh[1] + "% Fruit and Veg");
             BlcokGreen.Fill = Brushes.Green;
@@ -113,12 +113,11 @@ namespace PROG2A_GUI_POE
             Recipe DispRecipe = DataStore.Book[DataStore.selection];
             OtptBox.Text = DispRecipe.DisplayRecipe();
 
-            bargraph(DispRecipe.FoodGroupPerc());   
+            bargraph(DispRecipe.FoodGroupPerc());
         }
 
         private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
-            
             DataStore.edtmode = false;
             AddEditWindow objAddEditWindow = new AddEditWindow();
             this.Hide();
@@ -155,6 +154,14 @@ namespace PROG2A_GUI_POE
             MainWindow objMainWindow = new MainWindow();
             this.Close();
             objMainWindow.Show();
+        }
+
+        private void EdtRecipeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DataStore.edtmode = true;
+            AddEditWindow objAddEditWindow = new AddEditWindow();
+            this.Hide();
+            objAddEditWindow.Show();
         }
     }
 }
