@@ -27,7 +27,6 @@ namespace PROG2A_GUI_POE
 
             InitializeComponent();
             //stores all the recipes
-            MBook = new Dictionary<string, Recipe>();
             //Creates some stock recipes to fill the system
             IngredientDetails stockIngredientdetailsone = new IngredientDetails();
             IngredientDetails stockIngredientdetailstwo = new IngredientDetails();
@@ -52,7 +51,14 @@ namespace PROG2A_GUI_POE
             stockSteps.Add("Add the pineapple to the bowl");
             stockSteps.Add("Mix all the ingredients and serve");
             stockRecipe.CreateRecipe("fruit salad", stockIngredients, stockSteps);
-            MBook.Add("fruit salad", stockRecipe);
+            if (DataStore.Book.ContainsKey("fruit salad"))
+            {
+
+            }
+            else
+            {
+                DataStore.Book.Add("fruit salad", stockRecipe);
+            }
             //Stock Recipe two
             astockIngredientdetailsone.CreateIngredient("grated Cheese", 2, "cups", 911, "dairy");
             astockIngredients.Add(astockIngredientdetailsone.Name, astockIngredientdetailsone);
@@ -62,8 +68,16 @@ namespace PROG2A_GUI_POE
             astockSteps.Add("Pour the melted cheese over the cake");
             astockSteps.Add("Let it cool and serve");
             astockRecipe.CreateRecipe("cheese cake", astockIngredients, astockSteps);
-            MBook.Add("cheese cake", astockRecipe);
-            printtoList(MBook);
+            if (DataStore.Book.ContainsKey("cheese cake"))
+            {
+
+            }
+            else
+            {
+                DataStore.Book.Add("cheese cake", astockRecipe);
+            }
+            
+            printtoList(DataStore.Book);
 
             
         }
@@ -95,7 +109,6 @@ namespace PROG2A_GUI_POE
         {
             if (RecipeLst.SelectedItem != null)
             {
-                DataStore.Book = MBook;
                 DataStore.selection = RecipeLst.SelectedItem.ToString();
                 ViewWindow objViewWindow = new ViewWindow();
                 this.Hide();

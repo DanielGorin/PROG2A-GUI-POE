@@ -42,12 +42,16 @@
         </StackPanel>
         <ListBox x:Name="IngredientList" Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="165,0,0,-1" Height="249" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="214"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="165,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-za" Text="Ingredient List"/></TextBlock>
-        <TextBlock TextWrapping="Wrap" Grid.Column="1" Margin="0,12,-111,0" Grid.Row="1" Height="16" VerticalAlignment="Top" HorizontalAlignment="Right" Width="101"><Run Language="en-za" Text="Recipe Instructions"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Grid.Column="1" Margin="0,12,-111,0" Grid.Row="1" Height="16" VerticalAlignment="Top" HorizontalAlignment="Right" Width="101"><Run Language="en-za" Text="New Instruction:"/></TextBlock>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="26,120,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Ingredient Calor"/><Run Language="en-za" Text="ies:"/></TextBlock>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="28,157,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-za" Text="Food Groups:"/></TextBlock>
         <Button x:Name="AddIngBtn" Content="Add Ingredient" Grid.Column="1" Margin="36,282,263,-34" Grid.Row="1" Width="100" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Click="AddIngBtn_Click"/>
         <Button x:Name="DelIngBtn" Content="Delete Ingredient" Grid.Column="1" Margin="218,282,73,-34" Grid.Row="1" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Click="DelIngBtn_Click"/>
-        <Button x:Name="AddRecBtn" Content="Add Recipe" Grid.Column="1" Margin="467,282,-168,-34" Grid.Row="1" Width="100" Background="#FF388879" FontFamily="Arial Rounded MT Bold"/>
-        <TextBox x:Name="Instructions_Box" TextWrapping="Wrap" Text="TextBox" Grid.Column="1" Margin="409,29,-225,-1" Grid.Row="1"/>
+        <Button x:Name="AddRecBtn" Content="Add Recipe" Grid.Column="1" Margin="467,282,-168,-34" Grid.Row="1" Width="100" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Click="AddRecBtn_Click"/>
+        <TextBox x:Name="Instructions_Box" TextWrapping="Wrap" Text="TextBox" Grid.Column="1" Margin="409,29,-225,177" Grid.Row="1"/>
+        <TextBox x:Name="AllInsBox" TextWrapping="Wrap" Text="TextBox" Grid.Column="1" Margin="409,165,-225,1" Grid.Row="1" IsReadOnly="True"/>
+        <TextBlock x:Name="AllInsTxt" TextWrapping="Wrap" Grid.Column="1" Margin="409,149,-152,116" Grid.Row="1"><Run Language="en-za" Text="Current Instructions"/></TextBlock>
+        <Button x:Name="AddInsBtn" Content="Add New" Grid.Column="1" Margin="409,113,-101,138" Grid.Row="1" Background="#FF388879" Click="AddInsBtn_Click"/>
+        <Button x:Name="ClrInsBtn" Content="Clear Current" Grid.Column="1" Margin="532,113,-225,137" Grid.Row="1" Background="#FF388879" Click="ClrInsBtn_Click"/>
     </Grid>
 </Window>

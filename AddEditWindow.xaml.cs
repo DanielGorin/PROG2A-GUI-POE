@@ -38,6 +38,7 @@ namespace PROG2A_GUI_POE
             FatsRad.IsChecked = false;
             DairyRad.IsChecked = false;
             WaterRad.IsChecked = false;
+            AllInsBox.Text = string.Empty;
             //sets up the recipe and ingredients to be filled in
 
         }
@@ -59,6 +60,8 @@ namespace PROG2A_GUI_POE
             FatsRad.IsChecked = false;
             DairyRad.IsChecked = false;
             WaterRad.IsChecked = false;
+            AllInsBox.Text = string.Empty;
+
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -172,7 +175,6 @@ namespace PROG2A_GUI_POE
             IngMeasureBox.Text = string.Empty;
             IngQuantBox.Text = string.Empty;
             IngCalBox.Text = string.Empty;
-            Instructions_Box.Text = string.Empty;
             StarchRad.IsChecked = false;
             FandVRad.IsChecked = false;
             BeansRad.IsChecked = false;
@@ -180,12 +182,6 @@ namespace PROG2A_GUI_POE
             FatsRad.IsChecked = false;
             DairyRad.IsChecked = false;
             WaterRad.IsChecked = false;
-
-            //Creates an instance of the recipe class
-            //Recipe HoldRecipe = new Recipe();
-            //populates the new recipe
-            //HoldRecipe.CreateRecipe(nam, Ingredients, steps);
-            //stores all Gui inputs in variables and checks that all inputs are acceptable
 
 
 
@@ -202,6 +198,77 @@ namespace PROG2A_GUI_POE
             {
                 MessageBox.Show("No ingredient selected.\nPlease click on an ingredient name from the list ot select it.");
             }
+        }
+        List<string> steps = new List<string>();
+        private void AddInsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Instructions_Box.Text != string.Empty)
+            {
+                steps.Add(Instructions_Box.Text);
+
+
+                AllInsBox.Text += steps.Count.ToString() + ". " + Instructions_Box.Text + "\n";
+                Instructions_Box.Text = string.Empty;
+
+            }
+            else
+            {
+                MessageBox.Show("Please type an instuction in the new instructions box.");
+            }
+        }
+
+        private void ClrInsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            steps.Clear();
+            AllInsBox.Text = string.Empty;
+        }
+        //Creates an instance of the recipe class
+        Recipe HoldRecipe = new Recipe();
+
+        //stores all Gui inputs in variables and checks that all inputs are acceptable
+        private void AddRecBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string nam = "";
+            bool axpt = true;
+            if (NameBox.Text != string.Empty) 
+            {
+                nam = NameBox.Text;
+            }
+            else
+            {
+                axpt = false;
+                MessageBox.Show("Please add a recipe name to create your recipe.");
+            }
+            if (steps.Count == 0)
+            {
+                axpt= false;
+                MessageBox.Show("Please add some steps to create your recipe.");
+            }
+            if (Ingredients.Count == 0)
+            {
+                axpt= false;
+                MessageBox.Show("Please add some ingredients to create your recipe.");
+            }
+            if ( axpt)
+            {
+                MessageBoxResult res = MessageBox.Show("Are you sure you are done creating your recipe?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                switch (res)
+                {
+                    case MessageBoxResult.Yes:
+                        //populates the new recipe
+                        HoldRecipe.CreateRecipe(nam, Ingredients, steps);
+                        DataStore.Book.Add(HoldRecipe.recipeName, HoldRecipe);
+                        MainWindow objMainWindow = new MainWindow();
+                        this.Close();
+                        objMainWindow.Show();
+
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
+            
         }
     }
 }
