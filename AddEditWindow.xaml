@@ -6,6 +6,25 @@
         xmlns:local="clr-namespace:PROG2A_GUI_POE"
         mc:Ignorable="d"
         Title="AddEditWindow" Height="450" Width="800" Background="#FF1B463E">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
+        </Style>
+    </Window.Resources>
     <Grid Height="434" VerticalAlignment="Bottom">
         <Grid.RowDefinitions>
             <RowDefinition Height="87"/>
@@ -40,7 +59,7 @@
             <RadioButton x:Name="DairyRad" Content="Dairy" GroupName="FG"/>
             <RadioButton x:Name="WaterRad" Content="Water" GroupName="FG"/>
         </StackPanel>
-        <ListBox x:Name="IngredientList" Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="165,0,0,-1" Height="249" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="214"/>
+        <ListBox x:Name="IngredientList" Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="165,0,0,-1" Height="252" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="214"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="165,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-za" Text="Ingredient List"/></TextBlock>
         <TextBlock TextWrapping="Wrap" Grid.Column="1" Margin="0,12,-111,0" Grid.Row="1" Height="16" VerticalAlignment="Top" HorizontalAlignment="Right" Width="101"><Run Language="en-za" Text="New Instruction:"/></TextBlock>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="26,120,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Ingredient Calor"/><Run Language="en-za" Text="ies:"/></TextBlock>

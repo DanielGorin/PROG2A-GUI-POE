@@ -6,6 +6,18 @@
         xmlns:local="clr-namespace:PROG2A_GUI_POE"
         mc:Ignorable="d"
         Title="ViewWindow" Height="450" Width="800" Background="#FF1B463E">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
