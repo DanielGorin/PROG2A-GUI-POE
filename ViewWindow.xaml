@@ -28,7 +28,7 @@
                 <Button x:Name="_3xScaleBtn" Content="3x" Height="30" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="_3xScaleBtn_Click"/>
                 <Button x:Name="ResetScalebtn" Content="Reset" Height="30" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="ResetScalebtn_Click"/>
                 <Rectangle Height="33" Width="100"/>
-                <Button x:Name="ExitBtn" Content="EXIT" Height="40" Background="#FF122B26" Foreground="White" BorderBrush="Black" Click="ExitBtn_Click"/>
+                <Button x:Name="ExitBtn" Content="RETURN" Height="40" Background="#FF122B26" Foreground="White" BorderBrush="Black" Click="ExitBtn_Click"/>
             </StackPanel>
             <TextBox x:Name="OtptBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="285" Height="292"/>
             <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="18"><Run Text="Recipe D"/><Run Language="en-za" Text="escription:"/></TextBlock>

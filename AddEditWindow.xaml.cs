@@ -24,16 +24,17 @@ namespace PROG2A_GUI_POE
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void ResetBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
             MainWindow objMainWindow = new MainWindow();
             this.Close();
             objMainWindow.Show();
-        }
-
-        private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
