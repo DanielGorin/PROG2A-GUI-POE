@@ -205,6 +205,7 @@ namespace PROG2A_GUI_POE
             }
             return ans;
         }
+        //End of containsFG Method
 
             //---------------------------- End of Recipe Methods ------------------------------
         }

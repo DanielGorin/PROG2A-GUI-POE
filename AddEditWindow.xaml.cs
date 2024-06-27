@@ -70,10 +70,9 @@ namespace PROG2A_GUI_POE
             }
 
         }
-
-
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
+            //clears all the gui components
             NameBox.Text = string.Empty;
             IngredientNameBox.Text = string.Empty;
             IngMeasureBox.Text = string.Empty;
@@ -89,18 +88,16 @@ namespace PROG2A_GUI_POE
             DairyRad.IsChecked = false;
             WaterRad.IsChecked = false;
             AllInsBox.Text = string.Empty;
+            //clears the stored data
             Ingredients.Clear();
             steps.Clear();
-
         }
-
-        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)//closes the Add/Edit window and reopesn the main recipe list window
         {
             MainWindow objMainWindow = new MainWindow();
             this.Close();
             objMainWindow.Show();
         }
-
         private void AddIngBtn_Click(object sender, RoutedEventArgs e)
         {
             //Variable used to detect errors

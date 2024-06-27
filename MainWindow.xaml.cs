@@ -22,14 +22,13 @@ namespace PROG2A_GUI_POE
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Dictionary<string, Recipe> MBook;
+        //runs on strart up and show (both at the start of the program and when the window is show from another window)
+        //-------------------------------------------------------------------------------------------------------------------------------------
         public MainWindow()
         {
-
-            InitializeComponent();
-            //stores all the recipes
             //Creates some stock recipes to fill the system
-            IngredientDetails stockIngredientdetailsone = new IngredientDetails();
+            //------------------------------------------------------------------------------------------------------------
+            /*IngredientDetails stockIngredientdetailsone = new IngredientDetails();
             IngredientDetails stockIngredientdetailstwo = new IngredientDetails();
             IngredientDetails stockIngredientdetailsthree = new IngredientDetails();
             IngredientDetails astockIngredientdetailsone = new IngredientDetails();
@@ -41,11 +40,11 @@ namespace PROG2A_GUI_POE
             Recipe stockRecipe = new Recipe();
             Recipe astockRecipe = new Recipe();
             //Stock Recipe One
-            stockIngredientdetailsone.CreateIngredient("apple", 100, "g", 52, "fruit");
+            stockIngredientdetailsone.CreateIngredient("apple", 100, "g", 52, "fruit and veg");
             stockIngredients.Add(stockIngredientdetailsone.Name, stockIngredientdetailsone);
-            stockIngredientdetailstwo.CreateIngredient("banana", 150, "g", 134, "fruit");
+            stockIngredientdetailstwo.CreateIngredient("banana", 150, "g", 134, "fruit and veg");
             stockIngredients.Add(stockIngredientdetailstwo.Name, stockIngredientdetailstwo);
-            stockIngredientdetailsthree.CreateIngredient("pineapple", 100, "g", 48, "fruit");
+            stockIngredientdetailsthree.CreateIngredient("pineapple", 100, "g", 48, "fruit and veg");
             stockIngredients.Add(stockIngredientdetailsthree.Name, stockIngredientdetailsthree);
             stockSteps.Add("Add the apple to a bowl");
             stockSteps.Add("Add the banana to the bowl");
@@ -71,17 +70,16 @@ namespace PROG2A_GUI_POE
             astockRecipe.CreateRecipe("cheese cake", astockIngredients, astockSteps);
             if (DataStore.Book.ContainsKey("cheese cake"))
             {
-
             }
             else
             {
                 DataStore.Book.Add("cheese cake", astockRecipe);
-            }
-            
+            }*/
+            //----------------------------------------------------------------------------------------------------------------
             printtoList(DataStore.Book);
-
-            
         }
+        //-------------------------------------------------------------------------------------------------------------------------------------
+        //method used to alphabeticaly print the recipes to the GUI list
         public void printtoList(Dictionary<string, Recipe> bk)
         {
             RecipeLst.Items.Clear();
@@ -92,12 +90,12 @@ namespace PROG2A_GUI_POE
                 RecipeLst.Items.Add($"{alph.Key}");
             }
         }
-
+        //Closes the window and shuts down the program
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
+        //Hides the main window and opesn the Add/Edit window in Add mode
         private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
             DataStore.edtmode = false;
@@ -106,7 +104,7 @@ namespace PROG2A_GUI_POE
              objAddEditWindow.Show();
             
         }
-
+        //Hides the main window and opens the display window and selects whcih recipe will be displayed
         private void DisplayBtn_Click(object sender, RoutedEventArgs e)
         {
             if (RecipeLst.SelectedItem != null)
@@ -122,7 +120,7 @@ namespace PROG2A_GUI_POE
             }
             
         }
-
+        //Hides the main window and opens the Add/Edit window in Edit mode, selects which recipe will be edited
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
             if(RecipeLst.SelectedItem != null)
@@ -138,7 +136,7 @@ namespace PROG2A_GUI_POE
                 MessageBox.Show("No Recipe Selected.\nPlease click on a recipe name from the list to select it.");
             }
         }
-
+        //Prompts the user to make sure, and then deletes the selected recipe
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             if (RecipeLst.SelectedItem != null)
@@ -161,7 +159,7 @@ namespace PROG2A_GUI_POE
                 MessageBox.Show("No Recipe Selected.\nPlease click on a recipe name from the list to delete it.");
             }
         }
-
+        //checks the search bar and search criteria inorder to filter the recipe list
         private void DisplayBtn_Copy_Click(object sender, RoutedEventArgs e)
         {
             
@@ -236,7 +234,7 @@ namespace PROG2A_GUI_POE
                 MessageBox.Show("Please type something in the search box to filter the recipe list");
             }
         }
-
+        //resets the search by alphabeticaly listing all recipes
         private void Clear_Search_Click(object sender, RoutedEventArgs e)
         {
             printtoList(DataStore.Book);
