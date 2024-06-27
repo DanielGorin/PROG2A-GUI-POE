@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,13 +22,43 @@ namespace PROG2A_GUI_POE
     {
         public AddEditWindow()
         {
+            //Clears all inputs
             InitializeComponent();
+            NameBox.Text = string.Empty;
+            IngredientNameBox.Text = string.Empty;
+            IngMeasureBox.Text = string.Empty;
+            IngQuantBox.Text = string.Empty;
+            IngCalBox.Text = string.Empty;
+            IngredientList.Items.Clear();
+            Instructions_Box.Text = string.Empty;
+            StarchRad.IsChecked = false;
+            FandVRad.IsChecked = false;
+            BeansRad.IsChecked = false;
+            MeatRad.IsChecked = false;
+            FatsRad.IsChecked = false;
+            DairyRad.IsChecked = false;
+            WaterRad.IsChecked = false;
+            //sets up the recipe and ingredients to be filled in
+
         }
 
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NameBox.Text = string.Empty;
+            IngredientNameBox.Text = string.Empty;
+            IngMeasureBox.Text = string.Empty;
+            IngQuantBox.Text = string.Empty;
+            IngCalBox.Text = string.Empty;
+            IngredientList.Items.Clear();
+            Instructions_Box.Text = string.Empty;
+            StarchRad.IsChecked = false;
+            FandVRad.IsChecked = false;
+            BeansRad.IsChecked = false;
+            MeatRad.IsChecked = false;
+            FatsRad.IsChecked = false;
+            DairyRad.IsChecked = false;
+            WaterRad.IsChecked = false;
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -35,6 +66,98 @@ namespace PROG2A_GUI_POE
             MainWindow objMainWindow = new MainWindow();
             this.Close();
             objMainWindow.Show();
+        }
+
+        //Dictionaries lists and ingredient details needed to create a user ingredient
+        //Dictionary uised to store all the ingredients
+        Dictionary<string, IngredientDetails> Ingredients = new Dictionary<string, IngredientDetails>();
+        //List used to store all the instructions
+        //creates an instance of the ingredientdetails class
+        IngredientDetails holder = new IngredientDetails();
+
+        private void AddIngBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Variable used to detect errors
+            bool legit = true;
+            //variables used to store components of the ingrdeient and recipe classes
+            string ingname = "";
+            float ingquant = 0;
+            string meas = "";
+            float cal = 0;
+            string fgroup = "";
+
+            if (IngredientNameBox.Text != string.Empty)
+            {
+                ingname = IngredientNameBox.Text;
+            }
+            else
+            {
+                legit = false;
+                MessageBox.Show("Please include an Ingredient name to create an ingredient.");
+            }
+            if (IngMeasureBox.Text != string.Empty)
+            {
+                meas = IngMeasureBox.Text;
+            }
+            else
+            {
+                legit = false;
+                MessageBox.Show("Please include an Ingredient measurement to create an ingredient.");
+            }
+            if (StarchRad.IsChecked == true || FandVRad.IsChecked == true || BeansRad.IsChecked == true || MeatRad.IsChecked == true || FatsRad.IsChecked == true || DairyRad.IsChecked == true || WaterRad.IsChecked == true)
+            {
+                if (StarchRad.IsChecked == true)
+                {
+                    fgroup = "starch";
+                }
+                if (FandVRad.IsChecked == true)
+                {
+                    fgroup = "fruit and veg";
+                }
+                if (BeansRad.IsChecked == true)
+                {
+                    fgroup = "beans";
+                }
+                if (MeatRad.IsChecked == true)
+                {
+                    fgroup = "meat";
+                }
+                if (FatsRad.IsChecked == true)
+                {
+                    fgroup = "fat";
+                }
+                if (DairyRad.IsChecked == true)
+                {
+                    fgroup = "dairy";
+                }
+                if (WaterRad.IsChecked == true)
+                {
+                    fgroup = "water";
+                }
+            }
+            else
+            {
+                legit = false;
+                MessageBox.Show("Please select a food group to create an ingredient.");
+            }
+            if 
+
+
+
+            //populates the new ingredient
+            holder.CreateIngredient(ingname, ingquant, meas, cal, fgroup);
+            //Adds to the ingredients collection
+            Ingredients.Add(ingname, holder);
+
+
+            //Creates an instance of the recipe class
+            Recipe HoldRecipe = new Recipe();
+            //populates the new recipe
+            HoldRecipe.CreateRecipe(nam, Ingredients, steps);
+            //stores all Gui inputs in variables and checks that all inputs are acceptable
+                
+
+
         }
     }
 }
