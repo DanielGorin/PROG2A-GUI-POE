@@ -26,6 +26,7 @@ namespace PROG2A_GUI_POE
         //-------------------------------------------------------------------------------------------------------------------------------------
         public MainWindow()
         {
+            InitializeComponent();
             //Creates some stock recipes to fill the system
             //------------------------------------------------------------------------------------------------------------
             /*IngredientDetails stockIngredientdetailsone = new IngredientDetails();
@@ -76,13 +77,20 @@ namespace PROG2A_GUI_POE
                 DataStore.Book.Add("cheese cake", astockRecipe);
             }*/
             //----------------------------------------------------------------------------------------------------------------
-            printtoList(DataStore.Book);
+            if (DataStore.Book.Count > 0)
+            {
+                printtoList(DataStore.Book);
+            }
+
         }
         //-------------------------------------------------------------------------------------------------------------------------------------
         //method used to alphabeticaly print the recipes to the GUI list
         public void printtoList(Dictionary<string, Recipe> bk)
         {
-            RecipeLst.Items.Clear();
+            if (RecipeLst.Items.Count > 0)
+            {
+                RecipeLst.Items.Clear();
+            }
             var sortesDict = bk.OrderBy(KeyValuePair => KeyValuePair.Key);
             Console.WriteLine("Recipe List:");
             foreach (var alph in sortesDict)
