@@ -58,6 +58,7 @@
     <Compile Include="AddEditWindow.xaml.cs">
       <DependentUpon>AddEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataStore.cs" />
     <Compile Include="RecipeObject.cs" />
     <Compile Include="ViewWindow.xaml.cs">
       <DependentUpon>ViewWindow.xaml</DependentUpon>

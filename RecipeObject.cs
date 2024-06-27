@@ -63,7 +63,7 @@ namespace PROG2A_GUI_POE
             public Dictionary<string, IngredientDetails> recipeIngredients { get; set; }
             public List<string> recipeSteps { get; set; }
             //------------------------ End of Recipe Properties-------------------------------------
-            public void CreateRecipe(string name, Dictionary<string, IngredientDetails> ings, int calTot, List<string> stps)
+            public void CreateRecipe(string name, Dictionary<string, IngredientDetails> ings, List<string> stps)
             {
                 //------------------------ Recipe Constructos -----------------------------------------
                 recipeName = name;
@@ -79,7 +79,7 @@ namespace PROG2A_GUI_POE
                 string otpt = ""; //this will be the output string containing the full text ingredient description
 
                 int count = 0;
-                otpt = (recipeName+"/n");
+                otpt = (recipeName+":/n");
                 otpt = (otpt + "Ingredient List:\n");
                 foreach (var pair in recipeIngredients)
                 {

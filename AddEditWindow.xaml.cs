@@ -30,5 +30,10 @@ namespace PROG2A_GUI_POE
             this.Close();
             objMainWindow.Show();
         }
+
+        private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

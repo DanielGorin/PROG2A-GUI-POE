@@ -14,15 +14,26 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="149"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Rectangle HorizontalAlignment="Center" Height="87" VerticalAlignment="Center" Width="149" Fill="#FF122B26"/>
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="20" Text="The Recipe Collection"/>
             <StackPanel Grid.Row="1" Margin="0,0,0,-357" Background="#FF172E2A">
                 <Button x:Name="AddRecipeBtn" Content="Add Recipe" Height="50" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
-                <Rectangle Height="235" Width="100"/>
+                <Button x:Name="AddRecipeBtn_Copy" Content="Edit Recipe" Height="50" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
+                <TextBlock TextWrapping="Wrap" FontStretch="ExtraExpanded" Width="85" FontFamily="Arial Rounded MT Bold" FontSize="14" Foreground="White"><Run Language="en-za" Text="Scale Recipe By:"/></TextBlock>
+                <Button x:Name="AddRecipeBtn_Copy1" Content="0.5x" Height="30" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
+                <Button x:Name="AddRecipeBtn_Copy2" Content="2x" Height="30" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
+                <Button x:Name="AddRecipeBtn_Copy3" Content="3x" Height="30" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
+                <Button x:Name="AddRecipeBtn_Copy4" Content="Reset" Height="30" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
+                <Rectangle Height="33" Width="100"/>
                 <Button x:Name="ExitBtn" Content="EXIT" Height="40" Background="#FF122B26" Foreground="White" BorderBrush="Black" Click="Button_Click"/>
             </StackPanel>
+            <TextBox x:Name="OtptBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="285" Height="292"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="18"><Run Text="Recipe D"/><Run Language="en-za" Text="escription:"/></TextBlock>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="0,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="18"><Run Language="en-za" Text="Calory Breakdoiwn:"/></TextBlock>
+            <Canvas x:Name="GraphingCanvas" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Height="292" Margin="325,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="326"/>
         </Grid>
 
     </Grid>
