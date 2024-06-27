@@ -33,7 +33,33 @@
             <TextBox x:Name="OtptBox" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="285" Height="292"/>
             <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="18"><Run Text="Recipe D"/><Run Language="en-za" Text="escription:"/></TextBlock>
             <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="0,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="18"><Run Language="en-za" Text="Calory Breakdoiwn:"/></TextBlock>
-            <Canvas x:Name="GraphingCanvas" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Height="292" Margin="325,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="326"/>
+            <Canvas x:Name="GraphingCanvas" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Height="292" Margin="325,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="326">
+                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="100%" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
+                <StackPanel Height="132" Width="163" HorizontalAlignment="Center" Canvas.Left="163" VerticalAlignment="Top" Canvas.Top="80" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="0.962"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="1.41"/>
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
+                    <TextBlock x:Name="WaterPinkTxt" TextWrapping="Wrap" Text="TextBlock" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
+                    <TextBlock x:Name="DairyPurpleTxt" TextWrapping="Wrap" Text="TextBlock" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
+                    <TextBlock x:Name="FatOrangeTxt" TextWrapping="Wrap" Text="TextBlock" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
+                    <TextBlock x:Name="MeatBrownTxt" TextWrapping="Wrap" Text="TextBlock" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
+                    <TextBlock x:Name="BeansRedTxt" TextWrapping="Wrap" Text="TextBlock" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
+                    <TextBlock x:Name="VegGreenTxt" TextWrapping="Wrap" Text="TextBlock" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
+                    <TextBlock x:Name="StarchBlueTXT" TextWrapping="Wrap" Text="TextBlock" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
+                </StackPanel>
+                <Rectangle x:Name="BlockPink" Height="5" Canvas.Left="146" Stroke="Black" Canvas.Top="87" Width="13" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Rectangle x:Name="BlockPurple" Height="5" Canvas.Left="146" Stroke="Black" Canvas.Top="105" Width="13" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Rectangle x:Name="BlcokOrange" Height="5" Canvas.Left="146" Stroke="Black" Canvas.Top="124" Width="13" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Rectangle x:Name="BlockBrown" Height="5" Canvas.Left="146" Stroke="Black" Canvas.Top="141" Width="13" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Rectangle x:Name="BlockRed" Height="5" Canvas.Left="146" Stroke="Black" Canvas.Top="160" Width="13" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Rectangle x:Name="BlcokGreen" Height="5" Canvas.Left="146" Stroke="Black" Canvas.Top="179" Width="13" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Rectangle x:Name="BlcokBlue" Height="5" Canvas.Left="146" Stroke="Black" Canvas.Top="198" Width="13" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            </Canvas>
         </Grid>
 
     </Grid>

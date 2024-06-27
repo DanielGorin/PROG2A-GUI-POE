@@ -137,6 +137,60 @@ namespace PROG2A_GUI_POE
             //End of Totalcal method
             //foodGrouppercent Method
             //will output the percentage breakdown of the foodgroups in the recipe
+            public List<int> FoodGroupPerc()
+        {
+            List<int> outlist = new List<int>();
+            float tot = 0;
+            float starchtot = 0;
+            float vegtot = 0;
+            float beantot = 0;
+            float meattot = 0;
+            float fattot = 0;
+            float dairytot = 0;
+            float watertot = 0;
+            foreach (var pair in recipeIngredients)
+            {
+                tot += pair.Value.Calories;
+                if (pair.Value.foodGroup == "starch")
+                {
+                    starchtot += pair.Value.Calories;
+                }
+                if (pair.Value.foodGroup == "fruit and veg")
+                {
+                    vegtot+= pair.Value.Calories;
+                }
+                if (pair.Value.foodGroup == "beans")
+                {
+                    beantot += pair.Value.Calories;
+                }
+                if (pair.Value.foodGroup == "meat")
+                {
+                    meattot += pair.Value.Calories;
+                }
+                if (pair.Value.foodGroup == "fat")
+                {
+                    fattot += pair.Value.Calories;
+                }
+                if (pair.Value.foodGroup == "dairy")
+                {
+                    dairytot += pair.Value.Calories;
+                }
+                if (pair.Value.foodGroup == "water")
+                {
+                    watertot += pair.Value.Calories;
+                }
+            }
+            outlist.Add((int)Math.Round(100*starchtot/tot));
+            outlist.Add((int)Math.Round(100*vegtot/tot));
+            outlist.Add((int)Math.Round(100 * beantot/tot));
+            outlist.Add((int)Math.Round(100 * meattot / tot));
+            outlist.Add((int)Math.Round(100 * fattot /tot));
+            outlist.Add((int)Math.Round(100 * dairytot / tot));
+            outlist.Add((int)Math.Round((100 * watertot / tot)));
+            return outlist;
+
+
+        }
 
             //---------------------------- End of Recipe Methods ------------------------------
         }

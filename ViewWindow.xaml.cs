@@ -22,15 +22,33 @@ namespace PROG2A_GUI_POE
             InitializeComponent();
             setup();
         }
-        public void bargraph(int hh1,int hh2, int hh3, int hh4, int hh5, int hh6)
+        public void bargraph(List<int> hh)
         {
+
+            StarchBlueTXT.Text = (hh[0] +"% Starch");
+            BlcokBlue.Fill = Brushes.Blue;
+            VegGreenTxt.Text = (hh[1] + "% Fruit and Veg");
+            BlcokGreen.Fill = Brushes.Green;
+            BeansRedTxt.Text = (hh[2] + "% Beans");
+            BlockRed.Fill = Brushes.Red;
+            MeatBrownTxt.Text = (hh[3] + "% Meat");
+            BlockBrown.Fill = Brushes.LightBlue;
+            FatOrangeTxt.Text = (hh[4] + "% Fats");
+            BlcokOrange.Fill = Brushes.Orange;
+            DairyPurpleTxt.Text = (hh[5] + "% Dairy");
+            BlockPurple.Fill = Brushes.Purple;
+            WaterPinkTxt.Text = (hh[6] + "% Water");
+            BlockPink.Fill = Brushes.Pink;
+
+
             //variables to store the heights of the individual portions of the graph
-            int h1 = 2 * hh1;
-            int h2 = 2 * hh2;
-            int h3 = 2 * hh3;
-            int h4 = 2 * hh4;
-            int h5 = 2 * hh5;
-            int h6 = 2 * hh6;
+            int h1 = 2 * hh[0];
+            int h2 = 2 * hh[1];
+            int h3 = 2 * hh[2];
+            int h4 = 2 * hh[3];
+            int h5 = 2 * hh[4];
+            int h6 = 2 * hh[5];
+            int h7 = 2 * hh[6];
             //creates the rectangels used for the graph 
             Rectangle rect1 = new Rectangle();
             Rectangle rect2 = new Rectangle();
@@ -38,6 +56,7 @@ namespace PROG2A_GUI_POE
             Rectangle rect4 = new Rectangle();
             Rectangle rect5 = new Rectangle();
             Rectangle rect6 = new Rectangle();
+            Rectangle rect7 = new Rectangle();
             //sets the width of the rectangles
             rect1.Width = 100;
             rect2.Width = 100;
@@ -45,6 +64,7 @@ namespace PROG2A_GUI_POE
             rect4.Width = 100;
             rect5.Width = 100;
             rect6.Width = 100;
+            rect7.Width = 100;
             //sets the height of the rectangels
             rect1.Height = h1;
             rect2.Height = h2;
@@ -52,20 +72,23 @@ namespace PROG2A_GUI_POE
             rect4.Height = h4;
             rect5.Height = h5;
             rect6.Height = h6;
+            rect7.Height = h7;
             //fills the sections with individual colours
             rect1.Fill = Brushes.Blue;
             rect2.Fill = Brushes.Green;
             rect3.Fill = Brushes.Red;
-            rect4.Fill = Brushes.Brown;
+            rect4.Fill = Brushes.LightBlue;
             rect5.Fill = Brushes.Orange;
             rect6.Fill = Brushes.Purple;
+            rect7.Fill = Brushes.Pink;
             //centers all the rectangels:
-            Canvas.SetLeft(rect1, 113);
-            Canvas.SetLeft(rect2, 113);
-            Canvas.SetLeft(rect3, 113);
-            Canvas.SetLeft(rect4, 113);
-            Canvas.SetLeft(rect5, 113);
-            Canvas.SetLeft(rect6, 113);
+            Canvas.SetLeft(rect1, 20);
+            Canvas.SetLeft(rect2, 20);
+            Canvas.SetLeft(rect3, 20);
+            Canvas.SetLeft(rect4, 20);
+            Canvas.SetLeft(rect5, 20);
+            Canvas.SetLeft(rect6, 20);
+            Canvas.SetLeft(rect7, 20);
             //swets the y co-ords to create the graph
             Canvas.SetTop(rect1, 292 - h1);
             Canvas.SetTop(rect2, 292 - h1 - h2);
@@ -73,6 +96,7 @@ namespace PROG2A_GUI_POE
             Canvas.SetTop(rect4, 292 - h1 - h2 - h3 - h4);
             Canvas.SetTop(rect5, 292 - h1 - h2 - h3 - h4 - h5);
             Canvas.SetTop(rect6, 292 - h1 - h2 - h3 - h4 - h5 - h6);
+            Canvas.SetTop(rect7, 292 - h1 - h2 - h3 - h4 - h5 - h6 - h7);
 
             // Add the Rectangles to the Canvas
             GraphingCanvas.Children.Add(rect1);
@@ -81,13 +105,15 @@ namespace PROG2A_GUI_POE
             GraphingCanvas.Children.Add(rect4);
             GraphingCanvas.Children.Add(rect5);
             GraphingCanvas.Children.Add(rect6);
+            GraphingCanvas.Children.Add(rect7);
         }
 
         public void setup() // this code sets all the data in the display page to match the selected/updated recipe
         {
             Recipe DispRecipe = DataStore.Book[DataStore.selection];
             OtptBox.Text = DispRecipe.DisplayRecipe();
-            bargraph(20,20,10,10,30,10);   
+
+            bargraph(DispRecipe.FoodGroupPerc());   
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
