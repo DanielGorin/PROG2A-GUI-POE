@@ -79,12 +79,12 @@ namespace PROG2A_GUI_POE
                 string otpt = ""; //this will be the output string containing the full text ingredient description
 
                 int count = 0;
-                otpt = (recipeName+":/n");
+                otpt = (recipeName+":\n");
                 otpt = (otpt + "Ingredient List:\n");
                 foreach (var pair in recipeIngredients)
                 {
                     count++;
-                    otpt = (otpt + count.ToString() + ". " + pair.Value.displayIngredient()+"/n");
+                    otpt = (otpt + count.ToString() + ". " + pair.Value.displayIngredient()+"\n");
                 }
                 otpt = (otpt + "Steps:\n");
                 count = 0;
@@ -93,7 +93,7 @@ namespace PROG2A_GUI_POE
                     count++;
                     otpt = (otpt + count.ToString() + ". " + stp + "\n");
                 }
-                otpt = (otpt + "Calories:/n");
+                otpt = (otpt + "Calories:\n");
                 float tot = 0;
                 foreach (var pair in recipeIngredients)
                 {
