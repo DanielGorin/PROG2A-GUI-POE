@@ -85,12 +85,10 @@ namespace PROG2A_GUI_POE
 
         private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
-            /* AddEditWindow objAddEditWindow = new AddEditWindow();
+            AddEditWindow objAddEditWindow = new AddEditWindow();
              this.Hide();
-             objAddEditWindow.Show();*/
-            ViewWindow objViewWindow = new ViewWindow();
-            this.Hide();
-            objViewWindow.Show();
+             objAddEditWindow.Show();
+            
         }
 
         private void DisplayBtn_Click(object sender, RoutedEventArgs e)

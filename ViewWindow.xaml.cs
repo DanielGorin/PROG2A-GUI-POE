@@ -116,18 +116,43 @@ namespace PROG2A_GUI_POE
             bargraph(DispRecipe.FoodGroupPerc());   
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditWindow objAddEditWindow = new AddEditWindow();
+            this.Hide();
+            objAddEditWindow.Show();
+
+        }
+
+        private void ResetScalebtn_Click(object sender, RoutedEventArgs e)
+        {
+            DataStore.Book[DataStore.selection].ResetQuant();
+            setup();
+        }
+
+        private void _3xScaleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DataStore.Book[DataStore.selection].ScaleQuant(3);
+            setup();
+        }
+
+        private void _2xScalebtn_Click(object sender, RoutedEventArgs e)
+        {
+            DataStore.Book[DataStore.selection].ScaleQuant(2);
+            setup();
+        }
+
+        private void Scale0_5btn_Click(object sender, RoutedEventArgs e)
+        {
+            DataStore.Book[DataStore.selection].ScaleQuant(0.5f);
+            setup();
+        }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
             MainWindow objMainWindow = new MainWindow();
             this.Close();
             objMainWindow.Show();
-        }
-
-        private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            AddEditWindow objAddEditWindow = new AddEditWindow();
-            this.Close();
-            objAddEditWindow.Show();
         }
     }
 }
