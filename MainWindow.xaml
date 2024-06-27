@@ -37,7 +37,7 @@
         </ComboBox>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Text="Search"/><Run Language="en-za" Text=" Criteria:"/></TextBlock>
         <Button x:Name="DisplayBtn" Grid.Column="2" Content="Display" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" Height="39" Width="108" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Foreground="Black" BorderBrush="{x:Null}" Grid.RowSpan="2" Click="DisplayBtn_Click"/>
-        <Button x:Name="EditBtn" Grid.Column="2" Content="Edit" HorizontalAlignment="Center" Margin="0,65,0,0" Grid.Row="1" VerticalAlignment="Top" Height="39" Width="108" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Foreground="Black" BorderBrush="{x:Null}"/>
+        <Button x:Name="EditBtn" Grid.Column="2" Content="Edit" HorizontalAlignment="Center" Margin="0,65,0,0" Grid.Row="1" VerticalAlignment="Top" Height="39" Width="108" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Foreground="Black" BorderBrush="{x:Null}" Click="EditBtn_Click"/>
         <Button x:Name="DeleteBtn" Grid.Column="2" Content="Delete" HorizontalAlignment="Center" Margin="0,134,0,0" Grid.Row="1" VerticalAlignment="Top" Height="39" Width="108" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Foreground="Black" BorderBrush="{x:Null}"/>
         <Button x:Name="DisplayBtn_Copy" Grid.Column="1" Content="Search" HorizontalAlignment="Left" Margin="362,0,0,0" VerticalAlignment="Center" Height="19" Width="73" Background="#FF388879" FontFamily="Arial Rounded MT Bold" Foreground="Black" BorderBrush="{x:Null}"/>
     </Grid>

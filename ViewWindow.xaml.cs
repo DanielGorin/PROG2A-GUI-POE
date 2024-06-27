@@ -118,6 +118,8 @@ namespace PROG2A_GUI_POE
 
         private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
+            
+            DataStore.edtmode = false;
             AddEditWindow objAddEditWindow = new AddEditWindow();
             this.Hide();
             objAddEditWindow.Show();

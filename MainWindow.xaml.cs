@@ -99,6 +99,7 @@ namespace PROG2A_GUI_POE
 
         private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
+            DataStore.edtmode = false;
             AddEditWindow objAddEditWindow = new AddEditWindow();
              this.Hide();
              objAddEditWindow.Show();
@@ -119,6 +120,22 @@ namespace PROG2A_GUI_POE
                 MessageBox.Show("No Recipe Selected.\nPlease click on a recipe name from the list ot select it.");
             }
             
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(RecipeLst.SelectedItem != null)
+            {
+                DataStore.edtmode = true;
+                DataStore.selection = RecipeLst.SelectedItem.ToString();
+                AddEditWindow objAddEditWindow = new AddEditWindow();
+                this.Hide();
+                objAddEditWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("No Recipe Selected.\nPlease click on a recipe name from the list ot select it.");
+            }
         }
     }
 }

@@ -20,6 +20,15 @@ namespace PROG2A_GUI_POE
     /// </summary>
     public partial class AddEditWindow : Window
     {
+        //Dictionary uised to store all the ingredients
+        Dictionary<string, IngredientDetails> Ingredients = new Dictionary<string, IngredientDetails>();
+        //List used to store all the instructions
+        List<string> steps = new List<string>();
+        //creates an instance of the ingredientdetails class
+        IngredientDetails holder = new IngredientDetails();
+        //Creates an instance of the recipe class
+        Recipe HoldRecipe = new Recipe();
+
         public AddEditWindow()
         {
             //Clears all inputs
@@ -39,7 +48,26 @@ namespace PROG2A_GUI_POE
             DairyRad.IsChecked = false;
             WaterRad.IsChecked = false;
             AllInsBox.Text = string.Empty;
-            //sets up the recipe and ingredients to be filled in
+            //if the window is needed for an edit this sets it up
+            if (DataStore.edtmode)
+            {
+                HoldRecipe = DataStore.Book[DataStore.selection];
+                Ingredients = HoldRecipe.recipeIngredients;
+                steps = HoldRecipe.recipeSteps;
+                int count = 0;
+                string otpt = "";
+                foreach (var stp in steps)
+                {
+                    count++;
+                    otpt = (otpt + count.ToString() + ". " + stp + "\n");
+                }
+                AllInsBox.Text = otpt;
+                NameBox.Text = HoldRecipe.recipeName;
+                foreach (var ing in Ingredients)
+                {
+                    IngredientList.Items.Add(ing.Key);
+                }
+            }
 
         }
 
@@ -70,13 +98,6 @@ namespace PROG2A_GUI_POE
             this.Close();
             objMainWindow.Show();
         }
-
-        //Dictionaries lists and ingredient details needed to create a user ingredient
-        //Dictionary uised to store all the ingredients
-        Dictionary<string, IngredientDetails> Ingredients = new Dictionary<string, IngredientDetails>();
-        //List used to store all the instructions
-        //creates an instance of the ingredientdetails class
-        IngredientDetails holder = new IngredientDetails();
 
         private void AddIngBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -208,7 +229,7 @@ namespace PROG2A_GUI_POE
                 MessageBox.Show("No ingredient selected.\nPlease click on an ingredient name from the list ot select it.");
             }
         }
-        List<string> steps = new List<string>();
+
         private void AddInsBtn_Click(object sender, RoutedEventArgs e)
         {
             if (Instructions_Box.Text != string.Empty)
@@ -231,8 +252,6 @@ namespace PROG2A_GUI_POE
             steps.Clear();
             AllInsBox.Text = string.Empty;
         }
-        //Creates an instance of the recipe class
-        Recipe HoldRecipe = new Recipe();
 
         //stores all Gui inputs in variables and checks that all inputs are acceptable
         private void AddRecBtn_Click(object sender, RoutedEventArgs e)
@@ -243,8 +262,15 @@ namespace PROG2A_GUI_POE
             {
                 if (DataStore.Book.ContainsKey(NameBox.Text))
                 {
-                    axpt = false;
-                    MessageBox.Show("A Recipe of that name is already in the system");
+                    if ((DataStore.edtmode) && (NameBox.Text == DataStore.selection))
+                    {
+                        nam = NameBox.Text;
+                    }
+                    else
+                    {
+                        axpt = false;
+                        MessageBox.Show("A Recipe of that name is already in the system");
+                    }
                 }
                 else
                 {
@@ -275,6 +301,10 @@ namespace PROG2A_GUI_POE
                     case MessageBoxResult.Yes:
                         //populates the new recipe
                         HoldRecipe.CreateRecipe(nam, Ingredients, steps);
+                        if (DataStore.edtmode)
+                        {
+                            DataStore.Book.Remove(DataStore.selection);
+                        }
                         DataStore.Book.Add(HoldRecipe.recipeName, HoldRecipe);
                         MainWindow objMainWindow = new MainWindow();
                         this.Close();

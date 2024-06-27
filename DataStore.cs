@@ -10,5 +10,6 @@ namespace PROG2A_GUI_POE
     {
         public static Dictionary<string,Recipe> Book { get; set; } = new Dictionary<string, Recipe>();
         public static string selection { get; set; }
+        public static bool edtmode { get; set; }
     }
 }
