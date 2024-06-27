@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROG2A_GUI_POE"
         mc:Ignorable="d"
-        Title="ViewWindow" Height="450" Width="800">
+        Title="ViewWindow" Height="450" Width="800" Background="#FF1B463E">
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="87"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="149"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle HorizontalAlignment="Center" Height="87" VerticalAlignment="Center" Width="149" Fill="#FF122B26"/>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="20" Text="The Recipe Collection"/>
+            <StackPanel Grid.Row="1" Margin="0,0,0,-357" Background="#FF172E2A">
+                <Button x:Name="AddRecipeBtn" Content="Add Recipe" Height="50" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
+                <Rectangle Height="235" Width="100"/>
+                <Button x:Name="ExitBtn" Content="EXIT" Height="40" Background="#FF122B26" Foreground="White" BorderBrush="Black" Click="Button_Click"/>
+            </StackPanel>
+        </Grid>
+
     </Grid>
 </Window>

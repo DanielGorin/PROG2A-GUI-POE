@@ -21,12 +21,12 @@
             <ColumnDefinition Width="298*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Background="#FF122B26" Margin="0,86,0,19" Grid.RowSpan="2">
-            <Button x:Name="AddRecipeBtn" Content="Add Recipe" Height="50" Background="#FF122B26" BorderBrush="Black" Foreground="White"/>
+            <Button x:Name="AddRecipeBtn" Content="Add Recipe" Height="50" Background="#FF122B26" BorderBrush="Black" Foreground="White" Click="AddRecipeBtn_Click"/>
             <Rectangle Height="384" Width="100"/>
             <Button x:Name="ExitBtn" Content="EXIT" Height="40" Background="#FF122B26" Foreground="White" BorderBrush="Black" Click="Button_Click"/>
         </StackPanel>
         <Rectangle HorizontalAlignment="Center" Height="87" VerticalAlignment="Center" Width="149" Fill="#FF122B26"/>
-        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White"><Run Language="en-za" Text="The Recipe Collection"/><LineBreak/><Run Language="en-za"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="20" Text="The Recipe Collection"/>
         <ListBox x:Name="RecipeLst" Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Width="422" Margin="13,86,13,59" Grid.RowSpan="2"/>
         <TextBox x:Name="SearchBar" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="344" Margin="13,0,0,0"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="13,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"><Run Language="en-za" Text="Search:"/></TextBlock>

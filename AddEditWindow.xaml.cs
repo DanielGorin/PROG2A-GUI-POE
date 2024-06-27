@@ -23,5 +23,12 @@ namespace PROG2A_GUI_POE
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow objMainWindow = new MainWindow();
+            this.Close();
+            objMainWindow.Show();
+        }
     }
 }

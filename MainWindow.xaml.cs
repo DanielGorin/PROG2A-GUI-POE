@@ -27,6 +27,14 @@ namespace PROG2A_GUI_POE
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Shutdown();
+        }
+
+        private void AddRecipeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditWindow objAddEditWindow = new AddEditWindow();
+            this.Hide();
+            objAddEditWindow.Show();
 
         }
     }
